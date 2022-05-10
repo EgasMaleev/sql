@@ -1,4 +1,3 @@
-
 create table if not exists genre (
 id serial primary key,
 genre_name varchar(40) not null
@@ -7,7 +6,6 @@ genre_name varchar(40) not null
 create table if not exists musicians (
 id serial primary key,
 nickname varchar(40) not null,
-genre_id integer
 );
 
 create table if not exists musicians_genre (
@@ -17,10 +15,9 @@ constraint pk primary key (musician_id, genre_id)
 );
 
 create table if not exists albums (
-id serial primary key,
+id serial primary key references musicians(id),
 album_name varchar(40) not null,
-year_album integer not null,
-musician_id integer references musicians(id)
+year_album integer not null
 );
 
 create table if not exists musicians_albums (
