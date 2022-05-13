@@ -26,10 +26,12 @@ album_id integer references albums(id),
 constraint ak primary key (musician_id, album_id)
 );
 
-create table if not exists Sbornik (
+create table if not exists sbornik (
 id serial primary key,
 sbornik_name varchar(40) not null
+year integer not null
 );
+
 
 create table if not exists songs (
 id serial primary key,
